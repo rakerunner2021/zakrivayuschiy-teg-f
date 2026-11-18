@@ -10,11 +10,13 @@
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   --content-width: clamp(0px, 100%, 700px);
   --main-font: 18px;
+  --main-line-height: 1.167;
   --button-font-size: 14px;
+  --button-line-height: 90%;
   --header-padding-block: clamp(122px,calc(119.1831px + 0.52864vw),130px);
   --border-content: 2px solid #000;
-  --button-like-padding: 10px 35px;
-  --title-padding: 4px 10px;
+  --button-like-padding: 8.5px 35px;
+  --title-padding: 4.5px 10px;
   --color-label: rgba(0, 0, 0, 0.5);
   --stroke-color-label: rgba(255, 255, 255, 0.5);
   --card-content-padding: 25px;
