@@ -14,7 +14,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-family-main);
-  font-variation-settings: 'wght' var(--font-weight-text);
+  font-variation-settings: "wght" var(--font-weight-text);
   background-image: var(--page-background-gradient);
   color: var(--main-color);
   background-size: cover;
@@ -72,7 +72,7 @@
 }
 
 .card__title {
-  font-variation-settings: 'wght' var(--font-weight-heading);
+  font-variation-settings: "wght" var(--font-weight-heading);
   font-size: var(--main-font);
   padding: var(--title-padding);
 }
@@ -98,14 +98,17 @@
   font-size: var(--button-font-size);
   color: var(--color-label);
   text-shadow:
-  -1px 0 var(--stroke-color-label),
-  0 1px var(--stroke-color-label),
-  1px 0 var(--stroke-color-label),
-  0 -1px var(--stroke-color-label);
+    -1px 0 var(--stroke-color-label),
+    0 1px var(--stroke-color-label),
+    1px 0 var(--stroke-color-label),
+    0 -1px var(--stroke-color-label);
   mix-blend-mode: hard-light;
 }
 
-@supports((text-stroke: 1px var(--stroke-color-label)) or (-webkit-text-stroke: 1px var(--stroke-color-label))) {
+@supports (
+  (text-stroke: 1px var(--stroke-color-label)) or
+    (-webkit-text-stroke: 1px var(--stroke-color-label))
+) {
   .card__label {
     -webkit-text-stroke: 1px var(--stroke-color-label);
     text-stroke: 1px var(--stroke-color-label);
@@ -192,8 +195,7 @@
 .card__like-button::before,
 .main__save-button::before,
 .dialog__button::before {
-  content: '';
-  background-color: var(--main-color);
+  content: "";
   position: absolute;
   inset: 0;
   transform-origin: left;
@@ -310,7 +312,7 @@
   transition: fill 0.3s 0s linear;
 }
 
-.like-icon:hover .core{
+.like-icon:hover .core {
   fill: var(--contour-color);
   transition: fill 0.3s 0s linear;
 }
@@ -320,7 +322,7 @@
   transition: fill 0.3s 0.05s linear;
 }
 
-.like-icon:active .core{
+.like-icon:active .core {
   fill: var(--animation-fill-color);
   transition: fill 0.3s 0s linear;
 }
@@ -352,7 +354,6 @@
 .like-icon.is-liked .sparks {
   animation: sparks 0.3s ease-in 0.3s 1;
 }
-
 
 @media (width <= 375px) {
   .main__save-button {
