@@ -14,8 +14,9 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-family-main);
-  font-variation-settings: var(--font-weight-text);
+  font-variation-settings: 'wght' var(--font-weight-text);
   background-image: var(--page-background-gradient);
+  color: var(--main-color);
   background-size: cover;
   background-attachment: fixed;
   font-size: var(--main-font);
@@ -60,6 +61,9 @@
 .button__text {
   font-family: var(--font-family-accent);
   font-size: var(--button-font-size);
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .card {
@@ -68,7 +72,7 @@
 }
 
 .card__title {
-  font-weight: 785;
+  font-variation-settings: 'wght' var(--font-weight-heading);
   font-size: var(--main-font);
   padding: var(--title-padding);
 }
@@ -123,7 +127,7 @@
 .card__like-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 7px;
   align-self: flex-end;
 }
 
@@ -134,6 +138,12 @@
   padding: 0;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button svg {
@@ -145,6 +155,7 @@
   padding: var(--button-like-padding);
   border: var(--border-content);
   line-height: var(--button-line-height);
+  transition: box-shadow 0.3s ease;
 }
 
 .main__save-button {
@@ -158,6 +169,52 @@
 
 .main__save-icon {
   display: block;
+  mix-blend-mode: difference;
+}
+
+.card__like-button:focus,
+.main__save-button:focus,
+.dialog__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--main-color);
+}
+
+.card__like-button,
+.main__save-button,
+.dialog__button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
+}
+
+.card__like-button::before,
+.main__save-button::before,
+.dialog__button::before {
+  content: '';
+  background-color: var(--main-color);
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  z-index: -1;
+  background-color: var(--button-hover-background-color);
+}
+
+.card__like-button:hover::before,
+.main__save-button:hover::before,
+.dialog__button:hover::before {
+  transform: scaleX(1);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--main-color);
 }
 
 .dialog[open] {
@@ -187,6 +244,7 @@
 
 .dialog__icon {
   flex-shrink: 0;
+  mix-blend-mode: difference;
 }
 
 .dialog__button {
@@ -195,6 +253,7 @@
   padding-block: 8.5px;
   align-self: stretch;
   text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
 }
 
 .dialog[open]::backdrop {
@@ -228,6 +287,72 @@
 .card__image--present {
   filter: contrast(1.2) saturate(1.4) brightness(1.05);
 }
+
+/* анимация сердца */
+
+.like-icon {
+  transform-origin: center;
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.like-icon .contour {
+  transition: fill 0.1s 0s linear;
+}
+
+.like-icon .core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .main-body {
+  transition: fill 0.3s 0s linear;
+}
+
+.like-icon:hover .core{
+  fill: var(--contour-color);
+  transition: fill 0.3s 0s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .core{
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s 1;
+}
+
 
 @media (width <= 375px) {
   .main__save-button {
