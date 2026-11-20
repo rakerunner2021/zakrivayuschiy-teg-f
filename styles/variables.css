@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
   --font-family-main: "Inter-Variable", sans-serif;
-  --font-family-accent: "PressStart2P", sans-serif;
+  --font-family-accent: "PressStart2P", fantasy;
   --font-weight-heading: 785;
   --font-weight-text: 400;
   --page-background-gradient:
@@ -20,7 +20,7 @@
   --header-padding-block: clamp(122px, calc(119.1831px + 0.75117vw), 130px);
   --border-content: 2px solid #000;
   --button-like-padding: 8.5px 35px;
-  --title-padding: 4.5px 10px;
+  --title-padding: 4px 10px;
   --color-label: rgba(0, 0, 0, 0.5);
   --stroke-color-label: rgba(255, 255, 255, 0.5);
   --card-content-padding: 25px;
